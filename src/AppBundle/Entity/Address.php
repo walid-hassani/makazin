@@ -237,5 +237,5 @@ class Address {
         $this->isMain = $isMain;
     }
 
-    
+
 }

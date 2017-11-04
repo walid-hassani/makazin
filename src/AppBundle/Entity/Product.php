@@ -24,21 +24,48 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Product {
 
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     private $id;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $name;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $description;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $description_full;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $price;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $price_supplier;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $reference;
 
+    /**
+     * @ORM\Column(type="string")
+     */
     private $reference_supplier;
+
 
 }
 
