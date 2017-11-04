@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -33,7 +34,7 @@ framework:
     php_errors:
         log: true
 
-    translator: { fallbacks: [ "en" ] }
+    translator: { fallbacks: [ "fr" ] }
 
 # Twig Configuration
 twig:
@@ -73,13 +74,3 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-# easy admin
-easy_admin:
-    entities:
-        - AppBundle\Entity\Product
-        - AppBundle\Entity\Category
-        - AppBundle\Entity\User
-    site_name: 'TECH SAVER'
-    design:
-        brand_color: '#1ABC9C'

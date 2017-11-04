@@ -10,6 +10,17 @@
  * @author Walid Hassani <w.hassani@arionys.com>
  */
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="media")
+ */
 class Media {
 
+    private $id;
+
+    private $path;
+
+    private $alt;
 }

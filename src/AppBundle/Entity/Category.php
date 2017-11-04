@@ -30,5 +30,5 @@ class Category {
      */
     private $name;
 
-    
+
 }
