@@ -10,7 +10,7 @@
  * @author Walid Hassani <w.hassani@arionys.com>
  */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Admin;
 
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AdminController as BaseAdminController;
 

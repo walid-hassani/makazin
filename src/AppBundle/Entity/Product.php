@@ -68,10 +68,6 @@ class Product {
      */
     private $reference_supplier;
 
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $stock;
 
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Brand")

@@ -1,0 +1,23 @@
+easy_admin:
+    entities:
+        User:
+            class: AppBundle\Entity\User
+            edit:
+                fields:
+                    - username
+                    - email
+                    - enabled
+                    - lastLogin
+                    # if administrators are allowed to edit users' passwords and roles, add this:
+                    - { property: 'plainPassword', type_options: { required: false} }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                form_options: { validation_groups: ['Profile'] }
+
+            new:
+                fields:
+                    - username
+                    - email
+                    - enabled
+                    - { property: 'plainPassword', type_options: { required: true} }
+                    - { property: 'roles', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_ADMIN': 'ROLE_ADMIN' } } }
+                form_options: { validation_groups: ['Registration'] }
