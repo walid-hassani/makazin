@@ -15,22 +15,10 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
+
             new AppBundle\AppBundle(),
-
             new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-
-
-            // These are the other bundles the SonataAdminBundle relies on
-            new Sonata\CoreBundle\SonataCoreBundle(),
-            new Sonata\BlockBundle\SonataBlockBundle(),
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
-
-            // And finally, the storage and SonataAdminBundle
-            new Sonata\AdminBundle\SonataAdminBundle(),
-
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

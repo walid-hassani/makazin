@@ -67,6 +67,14 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
 
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: admin@songbird.app
+        sender_name: Songbird
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
@@ -74,30 +82,3 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-#vich uploader
-vich_uploader:
-    db_driver: orm
-    mappings:
-        product_images:
-            uri_prefix:         '%app.path.product_images%'
-            upload_destination: '%kernel.root_dir%/../web/uploads/images/products'
-
-# fosuser config
-fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: AppBundle\Entity\User
-    from_email:
-        address: admin@songbird.app
-        sender_name: Songbird
-
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        sonata.block.service.text:
-        sonata.admin.block.admin_list:
-            contexts: [admin]
-        sonata.admin.block.search_result:
-            contexts: [admin]
-
