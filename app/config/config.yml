@@ -2,12 +2,12 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
-    - { resource: admin.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.product_images: /uploads/images/products
 
 framework:
     #esi: ~
@@ -34,7 +34,7 @@ framework:
     php_errors:
         log: true
 
-    translator: { fallbacks: [ "fr" ] }
+    translator: { fallbacks: [en] }
 
 # Twig Configuration
 twig:
@@ -74,3 +74,30 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+#vich uploader
+vich_uploader:
+    db_driver: orm
+    mappings:
+        product_images:
+            uri_prefix:         '%app.path.product_images%'
+            upload_destination: '%kernel.root_dir%/../web/uploads/images/products'
+
+# fosuser config
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: admin@songbird.app
+        sender_name: Songbird
+
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.block.service.text:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
+            contexts: [admin]
+

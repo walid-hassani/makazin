@@ -14,6 +14,8 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * Class Product
@@ -47,12 +49,12 @@ class Product {
     private $description_full;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $price;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="integer")
      */
     private $price_supplier;
 
@@ -67,9 +69,16 @@ class Product {
     private $reference_supplier;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $stock;
+
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Brand")
      */
     private $brand;
+
+
 
     /**
      * @return mixed
@@ -207,8 +216,12 @@ class Product {
         $this->brand = $brand;
     }
 
+
     function __toString()
     {
+        if(is_null($this->getName())) {
+            return 'NULL';
+        }
         return $this->getName();
     }
 
